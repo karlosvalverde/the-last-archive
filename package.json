@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@makotot/ghostui": "^2.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.0",
+    "mdb-react-ui-kit": "^4.2.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
@@ -37,7 +39,10 @@
     ]
   },
   "devDependencies": {
+    "jquery": "^3.6.1",
+    "popper.js": "^1.16.1",
     "react-scripts": "^5.0.1",
+    "react-scrollspy": "^3.4.3",
     "sass": "^1.54.8"
   }
 }

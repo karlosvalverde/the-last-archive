@@ -1,3 +1,18 @@
+/* Styles required only for the example above */
+.scrollspy-example {
+  position: relative;
+  height: 50vh;
+  overflow: auto;
+}
+
+.is-active {
+  color: crimson;
+}
+
+/* .active {
+  background-color: crimson;
+} */
+
 .App {
   text-align: center;
 }
