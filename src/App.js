@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import React, { useState, useRef, Link } from 'react';
+import React, { useState, useRef } from 'react';
 
 import { Button, Modal } from 'react-bootstrap';
 import { MDBCol, MDBContainer, MDBRow, MDBScrollspy, MDBScrollspyLink, MDBScrollspySubList } from 'mdb-react-ui-kit';
@@ -260,7 +260,7 @@ function MyModal(props) {
 function App() {
   const [modalShow, setModalShow] = useState(false);
 
-  const collapseSection1 = useRef(null);
+  // const collapseSection1 = useRef(null);
   // const collapseSection2 = useRef(null);
   // const collapseSection3 = useRef(null);
   // const collapseSection4 = useRef(null);
@@ -284,9 +284,9 @@ function App() {
 
         <div className='col col-lg-3 bg-primary position-relative' >
           {/* <button data-bs-toggle="modal" href="#myModal" role="button"> */}
-            <h2><a className='stretched-link' href='#' onClick={() => {
+            <h2><button className='stretched-link' onClick={() => {
               setModalShow(true);
-              } }>TEST</a></h2>
+              } }>TEST</button></h2>
         </div>
 
         <div className='col col-lg-3 bg-secondary'>
