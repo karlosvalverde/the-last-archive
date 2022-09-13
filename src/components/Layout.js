@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import About from './About/About';
+import Modal from './Modal/Modal';
 
 function Layout() {
 
@@ -16,9 +17,7 @@ function Layout() {
     return items[Math.floor(Math.random()*items.length)];
   };
 
-  const [modalShow, setModalShow] = useState(false);
   const [show, setShow] = useState(false);
-  const [name, setName] = useState(null);
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts`)
@@ -46,7 +45,8 @@ function Layout() {
   return (
     <>
       <About/>
-      <div className="container-fluid vh-100">
+      <div className="container-fluid vh-100" style={{ overflow: show && 'hidden' }}>
+      {/* <div className="container-fluid vh-100"> */}
 
         <div className='row row-cols-auto h-100 justify-content-between align-items-center
         '>
@@ -65,16 +65,21 @@ function Layout() {
           {
             data &&
               data.map(({ id, title }) => (
-                <div key={ id } className='col col-md-3'>
-                  {/* <button className=''> */}
-                    <h2 className={`is-sticker bg-${randomize(randomColor)} inter-li border border-dark border-2 text-center text-dark p-5`}><span className='fw-bold'>{id}</span> - { title }</h2>
-                  {/* </button> */}
+                <div key={ id } className='col col-md-3 mt-3'>
+                  <button
+                    className={`is-sticker is-btn bg-${randomize(randomColor)} border border-dark border-2 text-center text-dark p-5`}
+                    onClick={() => { setShow(true) }}
+                  >
+                    <h2 className={`inter-li`}><span className='fw-bold'>{id}</span> - { title }</h2>
+                  </button>
                 </div>
               ))
           }
 
         </div>
       </div>
+      {/* Modal */}
+      <Modal show={show} data={data} onClose={() => setShow(false)} />
     </>
   );
 }

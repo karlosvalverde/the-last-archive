@@ -1,11 +1,11 @@
 // import logo from './logo.svg';
 import React, { useState, useRef } from 'react';
 
-import { Button, Modal } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { MDBCol, MDBContainer, MDBRow, MDBScrollspy, MDBScrollspyLink, MDBScrollspySubList } from 'mdb-react-ui-kit';
 import './App.scss';
 import NewScrollspy from './NewScrollSpy/NewScrollspy';
-import Test from './Test/Test';
+import Modal from './Modal/Modal';
 
 function MyModal(props) {
   const collapseSection1 = useRef(null);
@@ -202,7 +202,7 @@ function Sandbox() {
     </div>
 
     {/* Modal */}
-    <Test show={show} name={name} onClose={() => setShow(false)} />
+    <Modal show={show} name={name} onClose={() => setShow(false)} />
     <MyModal
         show={modalShow}
         onHide={() => setModalShow(false)}
