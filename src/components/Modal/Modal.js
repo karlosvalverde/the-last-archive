@@ -17,8 +17,8 @@ export default function Modal(props) {
                         {
                             props.data &&
                             props.data.map(({ id, title, body }) => (
-                                <section key={ id } className=''>
-                                    <h2 className="border border-dark border-3 rounded-circle p-3 me-5 float-start">
+                                <section key={ id } id={`section-${id}`} className=''>
+                                    <h2 className="border border-dark border-3 p-3 me-5 float-start inter">
                                         { id }
                                     </h2>
                                     <h5 className="inter-b">
@@ -33,7 +33,7 @@ export default function Modal(props) {
                     </div>
                     <div className="col-1 d-inline-flex align-self-start justify-content-end h-25">
                         <button
-                            className={`is-sticker is-btn bg-light border border-dark border-2 text-center text-dark p-3`}
+                            className={`is-sticker is-btn bg-warning border border-dark border-2 text-center text-dark p-3 fw-bold`}
                             onClick={ props.onClose }
                         >X</button>
                     </div>

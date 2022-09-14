@@ -68,7 +68,10 @@ function Layout() {
                 <div key={ id } className='col col-md-3 mt-3'>
                   <button
                     className={`is-sticker is-btn bg-${randomize(randomColor)} border border-dark border-2 text-center text-dark p-5`}
-                    onClick={() => { setShow(true) }}
+                    onClick={() => {
+                      setShow(true);
+                      window.location.href=`#section-${id}`;
+                    }}
                   >
                     <h2 className={`inter-li`}><span className='fw-bold'>{id}</span> - { title }</h2>
                   </button>
