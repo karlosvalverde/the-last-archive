@@ -18,6 +18,7 @@ function Layout() {
   };
 
   const [show, setShow] = useState(false);
+  const [scroll, setScroll] = useState(null);
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts`)
@@ -45,8 +46,8 @@ function Layout() {
   return (
     <>
       <About/>
-      <div className="container-fluid vh-100" style={{ overflow: show && 'hidden' }}>
-      {/* <div className="container-fluid vh-100"> */}
+      {/* <div className="container-fluid vh-100" style={{ overflow: show && 'hidden' }}> */}
+      <div className="container-fluid vh-100">
 
         <div className='row row-cols-auto h-100 justify-content-between align-items-center
         '>
@@ -69,8 +70,8 @@ function Layout() {
                   <button
                     className={`is-sticker is-btn bg-${randomize(randomColor)} border border-dark border-2 text-center text-dark p-5`}
                     onClick={() => {
+                      setScroll(`section-${id}`);
                       setShow(true);
-                      window.location.href=`#section-${id}`;
                     }}
                   >
                     <h2 className={`inter-li`}><span className='fw-bold'>{id}</span> - { title }</h2>
@@ -81,8 +82,11 @@ function Layout() {
 
         </div>
       </div>
-      {/* Modal */}
-      <Modal show={show} data={data} onClose={() => setShow(false)} />
+      {/* Modal */}´
+      {
+        show &&
+          <Modal show={show} data={data} scroll={scroll} onClose={() => setShow(false)} />
+      }
     </>
   );
 }

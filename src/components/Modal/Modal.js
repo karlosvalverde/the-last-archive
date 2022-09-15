@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function Modal(props) {
+
+    const scrollEl = el => document.getElementById(el);
+
+    useEffect(() => {
+        scrollEl(props.scroll).scrollIntoView({ behavior: "smooth" });
+    }, [props.scroll]);
 
     if (!props.show) {
         return null;
@@ -11,9 +17,6 @@ export default function Modal(props) {
             <div className="is-sticker h-75 w-75 bg-warning p-5">
                 <div className="row align-items-center">
                     <div className="col-11 is-scroll overflow-auto">
-                        {/* <h1>Test</h1>
-                        <hr />
-                        <h2>Hola { props.name }</h2> */}
                         {
                             props.data &&
                             props.data.map(({ id, title, body }) => (

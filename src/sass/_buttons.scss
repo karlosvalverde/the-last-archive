@@ -1,7 +1,7 @@
 .is-btn {
     &:hover {
         color: $dark !important;
-        // box-shadow: 10px 10px 0 0 $dark !important;
+        box-shadow: 0 0 0 0 $dark !important;
         // border: solid 2px $light !important;
         // border-bottom: solid 4px $secondary !important;
         // border-left: solid 4px $secondary !important;
@@ -15,7 +15,7 @@
 
     &:active {
     // &:focus {
-        box-shadow: 0 0 0 0 $dark !important;
+        box-shadow: inset 5px 5px 10px 0 $dark !important;
         // border: solid 2px $light !important;
         background-color: $expression !important;
         color: $dark !important;
