@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import About from './About/About';
 import Modal from './Modal/Modal';
 
@@ -20,8 +21,10 @@ function Layout() {
   const [show, setShow] = useState(false);
   const [scroll, setScroll] = useState(null);
 
+  let location = useLocation();
+
   useEffect(() => {
-    fetch(`data.json`)
+    fetch( location.pathname === "/pt" ? `data_pt.json` : `data.json`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(

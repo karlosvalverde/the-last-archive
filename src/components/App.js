@@ -9,6 +9,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />} />
+      <Route path="/pt" element={<Layout />} />
       <Route path="/sandbox" element={<Sandbox />} />
     </Routes>
   );
