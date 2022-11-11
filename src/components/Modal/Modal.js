@@ -2,10 +2,8 @@ import React, { useEffect } from "react";
 
 export default function Modal(props) {
 
-    const scrollEl = el => document.getElementById(el);
-
     useEffect(() => {
-        scrollEl(props.scroll).scrollIntoView({ behavior: "smooth" });
+        document.getElementById(props.scroll).scrollIntoView({ behavior: "smooth" });
     }, [props.scroll]);
 
     if (!props.show) {
