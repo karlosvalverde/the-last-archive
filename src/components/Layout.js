@@ -31,7 +31,7 @@ function Layout() {
         return response.json();
       })
       .then((actualData) => {
-        setData(actualData);
+        setData(actualData.sort(() => Math.random() - 0.5));
         setError(null);
       })
       .catch((error) => {
@@ -67,15 +67,17 @@ function Layout() {
             data &&
               data.map(({ id, color, name }) => (
                 <div key={ id } className='col col-md-3 mt-3'>
-                  <button
-                    className={`is-sticker is-btn bg-${color} border border-dark border-2 text-center text-dark p-5`}
+                  <div
+                    className={`d-grid is-sticker is-btn bg-${color} border border-dark border-2 text-center text-break text-dark p-5`}
                     onClick={() => {
                       setScroll(`section-${id}`);
                       setShow(true);
                     }}
                   >
-                    <h2 className={`inter-li`}><span className='fw-bold'>{ id }</span> - { name }</h2>
-                  </button>
+                    <h2 className={`inter-li`}>
+                      {/* <span className='fw-bold'>{ id }</span> -  */}
+                      { name }</h2>
+                  </div>
                 </div>
               ))
           }

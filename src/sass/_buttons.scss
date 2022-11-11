@@ -1,4 +1,6 @@
 .is-btn {
+    cursor: pointer;
+
     &:hover {
         color: $dark !important;
         box-shadow: 0 0 0 0 $dark !important;

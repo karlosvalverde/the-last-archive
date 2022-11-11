@@ -19,9 +19,9 @@ export default function Modal(props) {
                             props.data &&
                             props.data.map(({ id, name, body }) => (
                                 <section key={ id } id={`section-${id}`} className=''>
-                                    <h2 className="border border-dark border-3 p-3 me-5 float-start inter">
+                                    {/* <h2 className="border border-dark border-3 p-3 me-5 float-start inter">
                                         { id }
-                                    </h2>
+                                    </h2> */}
                                     <h5 className="inter-b">
                                         — { name }
                                     </h5>
