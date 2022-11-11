@@ -9,19 +9,19 @@ function Layout() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const randomColor = [
-    "primary", "secondary", "light", "warning", "success", "danger"
-  ]
+  // const randomColor = [
+  //   "primary", "secondary", "light", "warning", "success", "danger"
+  // ]
 
-  const randomize = (items) => {
-    return items[Math.floor(Math.random()*items.length)];
-  };
+  // const randomize = (items) => {
+  //   return items[Math.floor(Math.random()*items.length)];
+  // };
 
   const [show, setShow] = useState(false);
   const [scroll, setScroll] = useState(null);
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/posts`)
+    fetch(`data.json`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(
@@ -65,16 +65,16 @@ function Layout() {
           }
           {
             data &&
-              data.map(({ id, title }) => (
+              data.map(({ id, color, name }) => (
                 <div key={ id } className='col col-md-3 mt-3'>
                   <button
-                    className={`is-sticker is-btn bg-${randomize(randomColor)} border border-dark border-2 text-center text-dark p-5`}
+                    className={`is-sticker is-btn bg-${color} border border-dark border-2 text-center text-dark p-5`}
                     onClick={() => {
                       setScroll(`section-${id}`);
                       setShow(true);
                     }}
                   >
-                    <h2 className={`inter-li`}><span className='fw-bold'>{id}</span> - { title }</h2>
+                    <h2 className={`inter-li`}><span className='fw-bold'>{ id }</span> - { name }</h2>
                   </button>
                 </div>
               ))
